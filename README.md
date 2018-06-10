@@ -1,5 +1,5 @@
 # Algo
-Algorithm practice
+Algorithm implement
 
 # Desc
 Some algo's implement , such as the sort algo or some encode and decode algo. 
