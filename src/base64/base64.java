@@ -1,5 +1,7 @@
 package base64;
 
+import java.io.IOException;
+
 /**
  * <pre>
  *     author: Chestnut
@@ -14,20 +16,54 @@ package base64;
 public class base64 {
 
     public static void main(String[] s) {
-        System.out.println(getBitStr('r'));
+
+        String orgStr = "gjjfsldjfjsalkjdf;          jasdjfjsdalfj;saj";
+        String encodeStr = "";
+        long timeStart;
+        long timeEnd;
+
+        System.out.println("-----------encode----------");
+        timeStart = System.nanoTime();
+        System.out.println("timeStart:"+timeStart);
+        encodeStr = Base64Utils.encode(orgStr);
+        System.out.println(encodeStr);
+        timeEnd = System.nanoTime();
+        System.out.println("timeEnd:"+timeEnd+",count:"+(timeEnd - timeStart));
+
+        byte[] data = orgStr.getBytes();
+        timeStart = System.nanoTime();
+        System.out.println("timeStart:"+timeStart);
+        System.out.println(encode(data));
+        timeEnd = System.nanoTime();
+        System.out.println("timeEnd:"+timeEnd+",count:"+(timeEnd - timeStart));
+
+        System.out.println("-----------decode----------");
+        timeStart = System.nanoTime();
+        System.out.println("timeStart:"+timeStart);
+        System.out.println(Base64Utils.decode(encodeStr));
+        timeEnd = System.nanoTime();
+        System.out.println("timeEnd:"+timeEnd+",count:"+(timeEnd - timeStart));
+
+        timeStart = System.nanoTime();
+        System.out.println("timeStart:"+timeStart);
+        byte[] decodeBuff = decode(encodeStr);
+        timeEnd = System.nanoTime();
+        System.out.println(new String(decodeBuff));
+        System.out.println("timeEnd:"+timeEnd+",count:"+(timeEnd - timeStart));
     }
 
+    public static String encode(byte[] bstr){
+        return new sun.misc.BASE64Encoder().encode(bstr);
+    }
 
-    public static void code64(String s) {
-        StringBuffer stringBuffer = new StringBuffer();
-        for (int i = 0; i < s.length(); i++) {
-             s.charAt(i);
+    public static byte[] decode(String str) {
+        byte[] bt = null;
+        try {
+            sun.misc.BASE64Decoder decoder = new sun.misc.BASE64Decoder();
+            bt = decoder.decodeBuffer(str);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    }
-
-    public static String getBitStr(char i) {
-        int ascii = (int) i;
-        //其中0表示补零而不是补空格，8表示至少8位
-        return String.format("%08d",Integer.toBinaryString(ascii));
+        return bt;
     }
 }
