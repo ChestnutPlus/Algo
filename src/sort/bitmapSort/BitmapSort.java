@@ -14,7 +14,7 @@ package sort.bitmapSort;
 public class BitmapSort {
 
     public static void main(String[] args) {
-        int[] a = {4,7,2,5,14,3,8,12};
+        int[] a = {4,7,2,5,0,14,3,8,12};
         int[] end = bitmapSort(a, 14);
 
         for (int x : end) {
