@@ -1,4 +1,4 @@
-package sort;
+package sort.bubbleSort;
 
 /**
  * <pre>
@@ -11,7 +11,7 @@ package sort;
  *     update log:
  * </pre>
  */
-public class bubbleSort {
+public class BubbleSort {
 
     public static void main(String[] strings) {
         int[] a = {9,8,5,4,2,0};
