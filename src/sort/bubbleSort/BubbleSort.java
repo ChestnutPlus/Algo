@@ -39,9 +39,9 @@ public class BubbleSort {
         *               空间复杂度为：O(2) = O(1)
         *
         *       稳定性
-        *           由核心比较的：if (arr[j]>arr[j+1])
-        *           得出，当相同的两个元素比较的时候，
-        *           并没有替换，所以，冒泡排序是稳定的。
+        *           当元素的交换发生在相邻的元素之间
+        *           的时候，为稳定排序。所以，冒泡
+        *           为稳定排序
         * */
     }
 
@@ -52,7 +52,7 @@ public class BubbleSort {
      *
      * @param arr   待排序数组
      */
-    private static void simpleBubbleSort(int[] arr) {
+    public static void simpleBubbleSort(int[] arr) {
         int temp;
         //每一趟把最大的数沉底
         for (int i = arr.length - 1; i > 0; i--) {
@@ -76,7 +76,7 @@ public class BubbleSort {
      *
      * @param arr   待排序数组
      */
-    private static void optimizationBubbleSort(int[] arr) {
+    public static void optimizationBubbleSort(int[] arr) {
         int temp;
         boolean isNotSorted = false;
         //每一趟把最大的数沉底

@@ -34,9 +34,13 @@ public class TestLru {
 //        lruCache.put("g", 23);
 //        lruCache.printLru();
 
-        int[] arr = {1,2,3,4,5,6,7,8,9,10,11,12};
-        int[][] result = Test(arr, 4);
-        System.out.println();
+
+        String content = "栗子是一个大帅哥";
+        String subStr = "栗子";
+        String subStr2 = "一个";
+        System.out.println(content.indexOf(subStr));
+        System.out.println(content.indexOf(subStr2));
+
     }
 
     /**
